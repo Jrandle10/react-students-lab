@@ -1,8 +1,25 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import './App.css';
+import studentsArr from './Data.js'
+import Students from './Students';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+
+function App() {
+    const students = studentsArr.map((ele, index) => {
+      return(<Students 
+        
+      name = {ele.name}
+      scores = {ele.scores}
+      bio = {ele.bio}
+      key = {index}
+      />)
+
+    })
+
+return (
+  <div className="App">{students}</div>
+)
+}
+
+
+
+export default App;
